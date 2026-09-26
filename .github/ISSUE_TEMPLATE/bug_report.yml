@@ -1,0 +1,44 @@
+name: Relatar um bug
+description: Algo não funciona como deveria
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por relatar. Antes de colar qualquer saída, **oculte os títulos das sessões e os caminhos** que você não quer mostrar.
+  - type: textarea
+    id: o-que-aconteceu
+    attributes:
+      label: O que aconteceu?
+      description: O que você fez, o que esperava e o que aconteceu no lugar.
+    validations:
+      required: true
+  - type: textarea
+    id: probe
+    attributes:
+      label: Saída do -Probe
+      description: Rode `pwsh -File .\Excluir-SessoesClaude.ps1 -Probe` e cole a saída (com os títulos ocultados). Conte também o que o VS Code mostra para o mesmo projeto.
+      render: text
+  - type: input
+    id: versao-extensao
+    attributes:
+      label: Versão da extensão do Claude Code
+      placeholder: ex. 2.1.283
+    validations:
+      required: true
+  - type: input
+    id: editor
+    attributes:
+      label: Editor e versão
+      placeholder: ex. VS Code 1.105, VS Code Insiders, Cursor
+  - type: input
+    id: windows
+    attributes:
+      label: Versão e idioma do Windows
+      placeholder: ex. Windows 11 24H2, pt-BR
+  - type: input
+    id: pwsh
+    attributes:
+      label: Versão do PowerShell
+      description: Saída de `$PSVersionTable.PSVersion`
+      placeholder: ex. 7.5.2
