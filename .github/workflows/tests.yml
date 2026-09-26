@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Versao do PowerShell
+        shell: pwsh
+        run: $PSVersionTable.PSVersion.ToString()
+
+      - name: Testes (inclusive a janela)
+        shell: pwsh
+        run: ./tests/Executar-Testes.ps1 -Janela
